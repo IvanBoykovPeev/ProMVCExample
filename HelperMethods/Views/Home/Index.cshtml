@@ -1,7 +1,18 @@
 ﻿@model string
+@using HelperMethods.Infrastructure 
 @{
     Layout = null;
 }
+
+@*@helper ListArrayItems(string[] items)
+{
+    <ul>
+        @foreach (string str in items)
+        {
+        <li>@str </li>
+        }
+    </ul>
+}*@
 
 <!DOCTYPE html>
 
@@ -11,19 +22,11 @@
     <title>Index</title>
 </head>
 <body>
-    <div> 
-        Here are the fruits:
-        @foreach (string str in (string [])ViewBag.Fruits)
-        {
-            <b>@str</b>
-        }
+    <div>
+        Here are the fruits: @Html.ListArrayItems((string[])ViewBag.Fruits)
     </div>
     <div>
-        Here are the cities:
-        @foreach (string str in (string[])ViewBag.Cities)
-        {
-            <b>@str</b>
-        }
+        Here are the cities: @Html.ListArrayItems((string[])ViewBag.Cities)
     </div>
     <div>
         Here are the message:
