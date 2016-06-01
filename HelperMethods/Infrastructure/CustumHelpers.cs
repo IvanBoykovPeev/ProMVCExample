@@ -1,4 +1,6 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
+
 
 namespace HelperMethods.Infrastructure
 {
@@ -16,6 +18,12 @@ namespace HelperMethods.Infrastructure
             }
 
             return new MvcHtmlString(tag.ToString());
+        }
+
+        public static MvcHtmlString DisplayMessage(this HtmlHelper html, string msg)
+        {
+            string result = String.Format("This is th message: <p>{0}<p>", msg);
+            return new MvcHtmlString(result);
         }
     }
 }
