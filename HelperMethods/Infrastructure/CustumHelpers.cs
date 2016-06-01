@@ -20,9 +20,11 @@ namespace HelperMethods.Infrastructure
             return new MvcHtmlString(tag.ToString());
         }
 
-        public static string DisplayMessage(this HtmlHelper html, string msg)
+        public static MvcHtmlString DisplayMessage(this HtmlHelper html, string msg)
         {
-            return String.Format("This is the message: <p>{0}<p>", msg);
+            string encodedMessage = html.Encode(msg);
+            string result = String.Format("This is the message: <p>{0}<p>", encodedMessage);
+            return new MvcHtmlString(result);
         }
     }
 }
